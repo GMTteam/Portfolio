@@ -21,8 +21,8 @@ const config = {
     "Framer Motion",
   ],
   author: "Nguyen Anh Tu",
-  email: "nguyeanhtuatus@gmail.com",
-  site: "",
+  email: "nguyenanhtuatus@gmail.com",
+  site: "https://nareshkhatri.site",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
