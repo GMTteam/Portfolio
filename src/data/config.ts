@@ -1,9 +1,9 @@
 const config = {
   title: "Andree | Indie Developer",
   description: {
-    long: "Explore the portfolio of Andree, an indie developer and creative technologist specializing in interactive web experiences, 3D animations, and innovative projects. Let's build something amazing together!",
+    long: "Explore the portfolio of Andree, an indie developer and creative technologist specializing in interactive Web App, Mobile App experiences, 3D animations, and innovative projects. Let's build something amazing together!",
     short:
-      "Discover the portfolio of Andree, an indie developer creating interactive web experiences and innovative projects.",
+      "Discover the portfolio of Andree, an indie developer creating interactive web app, mobile app experiences and innovative projects.",
   },
   keywords: [
     "Andree",
@@ -22,17 +22,16 @@ const config = {
   ],
   author: "Nguyen Anh Tu",
   email: "nguyenanhtuatus@gmail.com",
-  site: "https://nareshkhatri.site",
+  site: "https://andree-portfolio.vercel.app/",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
   },
   social: {
-    twitter: "https://x.com/nothotchaddi",
-    linkedin: "https://www.linkedin.com/in/naresh-khatri/",
-    instagram: "https://www.instagram.com/hotchaddi",
-    facebook: "https://www.facebook.com/HotChaddi/",
-    github: "https://github.com/Naresh-Khatri",
+    linkedin: "https://www.linkedin.com/in/anh-t%C3%BA-nguy%E1%BB%85n-805995277/",
+    instagram: "https://www.instagram.com/n.anh.tu_/",
+    facebook: "https://www.facebook.com/a.tu.nguyen.0410",
+    github: "https://github.com/GMTteam",
   },
 };
 export { config };
