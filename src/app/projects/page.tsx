@@ -11,53 +11,53 @@ import "@splidejs/react-splide/css";
 const PROJECTS = [
   {
     id: 1,
-    name: "Coding Ducks",
-    description: `Dive into CodingDucks, a fusion of CodePen's creative playground with LeetCode's problem-solving realm.
-Whether you're a newbie or a seasoned coder, join the community to paddle through coding adventures and let your
-creativity soar.`,
-    link: "https://www.codingducks.live",
+    name: "Shopizilla",
+    description: `Shopizilla is a one-stop solution for all your shopping needs. With
+      a sleek, user-friendly interface, it offers a seamless shopping
+      experience that is both efficient and enjoyable. Whether you are
+      looking for the latest fashion trends, tech gadgets, or home
+      essentials, Shopizilla has you covered.`,
+    link: "https://www.youtube.com/watch?v=ao2ymOi3nvQ&ab_channel=T%C3%BANguy%E1%BB%85nAnh",
     images: [
-      "/assets/projects-screenshots/codingducks/1.png",
-      "/assets/projects-screenshots/codingducks/2.png",
-      "/assets/projects-screenshots/codingducks/3.png",
-      "/assets/projects-screenshots/codingducks/4.png",
-      "/assets/projects-screenshots/codingducks/5.png",
+      "/assets/projects-screenshots/shopizilla/shopizilla-home.png",
+      "/assets/projects-screenshots/shopizilla/shopizilla-filter.png",
     ],
   },
   {
     id: 2,
-    name: "Ghost Chat",
-    description: `GhostChat is an anonymous messaging app that allows users to connect without revealing their identities. 
-Join the community for intriguing conversations and mysterious encounters.`,
-    link: "https://ghostchatt.vercel.app/",
+    name: "Taskor",
+    description: `Taskor is a task manager app that helps you stay organized and
+      productive. With a sleek, modern design and intuitive user
+      interface, Taskor makes it easy to create, manage, and track your
+      tasks, so you can focus on what matters most.`,
+    link: "https://github.com/GMTteam/taskor",
     images: [
-      "/assets/projects-screenshots/ghostchat/1.png",
-      "/assets/projects-screenshots/ghostchat/2.png",
-      "/assets/projects-screenshots/ghostchat/3.png",
-      "/assets/projects-screenshots/ghostchat/4.png",
+      "/assets/projects-screenshots/taskor/landing.png",
+      "/assets/projects-screenshots/taskor/Screenshot-taskScreen.png",
+      "/assets/projects-screenshots/taskor/Screenshot-timelineScreen.png",
+      "/assets/projects-screenshots/taskor/Screenshot-cateScreen.png",
+      "/assets/projects-screenshots/taskor/Screenshot-calenderScreen.png"
     ],
   },
   {
     id: 3,
-    name: "Coupon Luxury",
-    description: `Welcome to CouponLuxury, your destination for exclusive discounts and savings. Explore the platform to find the
-best deals on luxury brands and products. Join our savvy community of shoppers and unlock access to premium coupons.`,
-    link: "https://www.couponluxury.com/",
+    name: "Viland Travel",
+    description: `Viland Travel is a booking tour website that offers a wide range of
+      travel packages to destinations around the world. With a clean,
+      modern design and user-friendly interface, Viland Travel makes it`,
+    link: "https://vilandtravel.com/",
     images: [
-      "/assets/projects-screenshots/couponluxury/1.png",
-      "/assets/projects-screenshots/couponluxury/2.png",
-      "/assets/projects-screenshots/couponluxury/3.png",
-      "/assets/projects-screenshots/couponluxury/4.png",
-      "/assets/projects-screenshots/couponluxury/5.png",
+      "/assets/projects-screenshots/vilandtravel/vilandtravel-home.png",
+      "/assets/projects-screenshots/vilandtravel/vilandtravel-tour.png",
     ],
   },
   {
     id: 4,
-    name: "JNTUA Results Analyser",
-    description: `the go-to app for JNTUA students, empowering them to analyze, compare, and view classwise results effortlessly.
-     Dive into your academic journey with ease, track your progress, and gain valuable insights.`,
-    link: "/projects/4",
-    images: ["/assets/projects-screenshots/jra/1.png"],
+    name: "Portfolio",
+    description: `Welcome to my digital playground, where creativity meets code in the
+      most amazing way possible.`,
+    link: "https://andree-portfolio.vercel.app/",
+    images: ["/assets/projects-screenshots/portfolio/landing.png"],
   },
 ];
 function Page() {

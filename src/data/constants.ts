@@ -80,7 +80,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "js",
     label: "JavaScript",
     shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
+      "I have learned to use JS when I know the Python to dev Back-end ",
     color: "#F05138",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-origcleinal.svg",
   },
@@ -89,7 +89,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "python",
     label: "Python",
     shortDescription:
-      "the OG of backend, making everything smooth like butter! 🐍",
+      "In this time, I usually use Python. The OG of backend, making everything smooth like butter! 🐍",
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   },
@@ -97,7 +97,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     id: 8,
     name: "cpp",
     label: "Cpp",
-    shortDescription: "the grandpa of CMS, still rocking that cane",
+    shortDescription: "The grandpa of CMS, still rocking that cane",
     color: "#38bdf8",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
   },

@@ -278,7 +278,7 @@ const projects: Project[] = [
     category: "E-commerce iOS App",
     title: "Shopizilla",
     src: "/assets/projects-screenshots/shopizilla/shopizilla-home.png",
-    screenshots: ["landing.png123123123123123123123123123123"],
+    screenshots: ["shopizilla-home.png"],
     skills: {
       frontend: [
         PROJECT_SKILLS.swift,
@@ -332,7 +332,7 @@ const projects: Project[] = [
     category: "Task Manager App",
     title: "Taskor",
     src: "/assets/projects-screenshots/taskor/landing.png",
-    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
+    screenshots: ["Screenshot-loading.png", "Screenshot-taskScreen.png", "Screenshot-timelineScreen.png", "Screenshot-calendarScreen.png", "Screenshot-cateScreen.png"],
     live: "https://www.youtube.com/watch?v=5bGNcBDdhu8&ab_channel=T%C3%BANguy%E1%BB%85nAnh",
     github: "https://github.com/GMTteam/taskor",
     skills: {
@@ -343,11 +343,7 @@ const projects: Project[] = [
         PROJECT_SKILLS.reactQuery,
         PROJECT_SKILLS.framerMotion,
       ],
-      backend: [
-        PROJECT_SKILLS.firebase,
-        PROJECT_SKILLS.swift,
-        PROJECT_SKILLS.mongo,
-      ],
+      backend: [],
     },
     get content(): JSX.Element {
       return (
@@ -440,7 +436,7 @@ const projects: Project[] = [
             Viland Travel is a booking tour website that offers a wide range of
             travel packages to destinations around the world. With a clean,
             modern design and user-friendly interface, Viland Travel makes it
-            easy
+            easy.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <p className="font-mono mb-2 mt-8">
@@ -463,8 +459,8 @@ const projects: Project[] = [
     title: "My Portfolio",
     src: "/assets/projects-screenshots/portfolio/landing.png",
     screenshots: ["landing.png", "skills.png", "about.png", "projects.png"],
-    live: "http://nareshkhatri.vercel.app",
-    github:"https://github.com/Naresh-Khatri/Portfolio",
+    live: "http://andree-portfolio.vercel.app",
+    github:"https://github.com/GMTteam/Portfolio",
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
@@ -482,7 +478,7 @@ const projects: Project[] = [
         <div>
           <TypographyP className="font-mono ">
             Welcome to my digital playground, where creativity meets code in the
-            dopest way possible.
+            most amazing way possible.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <TypographyH3 className="my-4 mt-8">
@@ -563,7 +559,7 @@ const projects: Project[] = [
     category: "Unity Game",
     title: "Third Person Hunter",
     src: "/assets/projects-screenshots/thirdPerson/Capture.png",
-    screenshots: ["2.png"],
+    screenshots: ["Capture.PNG", "2.png", "3.png", "4.png"],
     live: "",
     github: "https://github.com/cuoicungtui/Third-Person",
     skills: {
