@@ -20,10 +20,10 @@ const EasterEggs = () => {
     if (typeof console !== "undefined") {
       console.clear();
       console.log(
-        "%cWhoa, look at you! 🕵️‍♂️\n" +
-          "You seem to have discovered the secret console! 🔍\n" +
+        "%cWhoa 🕵️‍♂️\n" +
+          "It's seem to have discovered the secret console! 🔍\n" +
           "Want to see some magic? ✨\n" +
-          "Just type %cmy first name%c and hit enter! 🎩🐇",
+          "Just type %cmy name%c and hit enter! 🎩🐇",
         //   "Just press the %c'n'%c key and watch the magic happen! 🪄",
         "color: #FFD700; font-size: 16px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px; margin-top:20px",
         "color: #00FF00; font-size: 16px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px; margin-top:20px",
@@ -36,7 +36,7 @@ const EasterEggs = () => {
         Object.defineProperty(window, name, {
           get() {
             console.log(
-              "%c✨ Abra Kadabra! ✨\n\n" +
+              "%c✨ Woala! ✨\n\n" +
                 "You just summoned the magic of Andree! 🧙‍♂️\n" +
                 "What??? youre not impressed? Fine, but remember: With great power comes great responsibility! 💻⚡",
 
@@ -45,7 +45,7 @@ const EasterEggs = () => {
 
             const timer = setTimeout(() => {
               console.log(
-                "%cPssttt! 🤫\n\n" +
+                "%c" +
                   "Do you like cats?? 😺 If yes, then press 'n' on viewport and see what happens! 🐱✨",
                 "color: #FF69B4; font-size: 16px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px;"
               );
