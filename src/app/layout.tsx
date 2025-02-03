@@ -34,12 +34,12 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: config.title,
-    description: config.description.short,
-    images: [config.ogImg],
-  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: config.title,
+  //   description: config.description.short,
+  //   images: [config.ogImg],
+  // },
   robots: {
     index: true,
     follow: true,

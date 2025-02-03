@@ -34,6 +34,7 @@ import {
   SiVisualstudiocode,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
+import Image from "next/image";
 
 // @ts-ignore
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -244,7 +245,7 @@ function Page() {
           >
             <div className="flex flex-row lg:flex-col items-center">
               <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5">
-                <img
+                <Image
                   className="rounded-full p-4 lg:p-10 w-[100px] md:w-[150px] lg:w-[200px] aspect-square  bg-zinc-800"
                   alt="me"
                   src="/assets/me.jpg"
@@ -331,7 +332,7 @@ function Page() {
                 </Splide>
               )}
             </div>
-            {/* <div className="">
+            <div className="">
               <Splide
                 options={{
                   type: "loop",
@@ -358,7 +359,7 @@ function Page() {
                   </SplideSlide>
                 ))}
               </Splide>
-            </div> */}
+            </div>
           </div>
         </main>
       </div>
