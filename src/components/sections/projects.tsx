@@ -10,10 +10,71 @@ import {
 } from "../ui/animated-modal";
 import { FloatingDock } from "../ui/floating-dock";
 import Link from "next/link";
-
 import SmoothScroll from "../smooth-scroll";
 import projects, { Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
+
+// Import các thư viện 3D
+import { Canvas, useLoader } from "@react-three/fiber";
+import { useGLTF, OrbitControls } from "@react-three/drei";
+import { TextureLoader } from "three";
+
+// Component load model và áp texture vào mesh "Screen"
+const ModelView = ({
+  modelPath,
+  textureImage,
+}: {
+  modelPath: string;
+  textureImage: string;
+}) => {
+  // Load model từ file GLB
+  const { scene } = useGLTF(modelPath);
+  // Load texture từ ảnh dựa trên giá trị src của project
+  const texture = useLoader(TextureLoader, textureImage);
+
+  React.useEffect(() => {
+    // Duyệt qua các đối tượng trong scene và tìm mesh có tên "Screen"
+    scene.traverse((child: any) => {
+      if (child.name === "Screen" && child.isMesh) {
+        child.material.map = texture;
+        child.material.needsUpdate = true;
+        
+      } else {
+        if (child.material) {
+          child.material.color.set("gray");
+      }
+      }
+    });
+  }, [scene, texture]);
+
+  return <primitive object={scene} scale={1.4} />;
+};
+
+// Component preview cho từng project: nếu có model thì render Canvas với model có texture, còn không thì render Image như cũ.
+const ProjectPreview = ({ project }: { project: Project }) => {
+  if (project.model) {
+    return (
+      <Canvas style={{ width: "100%", height: "100%" }} camera={{ position: [2, 0, 5] }}>
+        
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 5]} />
+        {/* Sử dụng project.src để làm texture cho Screen */}
+        <ModelView modelPath={project.model} textureImage={project.src} />
+        <OrbitControls enableZoom={false} />
+      </Canvas>
+    );
+  } else {
+    return (
+      <Image
+        className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
+        src={project.src}
+        alt={project.title}
+        width={300}
+        height={300}
+      />
+    );
+  }
+};
 
 const ProjectsSection = () => {
   return (
@@ -30,13 +91,14 @@ const ProjectsSection = () => {
         </h2>
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-3">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <Modall key={project.src} project={project} />
         ))}
       </div>
     </section>
   );
 };
+
 const Modall = ({ project }: { project: Project }) => {
   return (
     <div className="flex items-center justify-center">
@@ -46,14 +108,8 @@ const Modall = ({ project }: { project: Project }) => {
             className="relative w-[400px] h-auto rounded-lg overflow-hidden"
             style={{ aspectRatio: "3/2" }}
           >
-            <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
-              src={project.src}
-              alt={project.title}
-              width={300}
-              height={300}
-            />
-            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none">
+            <ProjectPreview project={project} />
+            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none">
               <div className="flex flex-col h-full items-start justify-end p-6">
                 <div className="text-lg text-left">{project.title}</div>
                 <div className="text-xs bg-white text-black rounded-lg w-fit px-2">
@@ -84,6 +140,7 @@ const Modall = ({ project }: { project: Project }) => {
     </div>
   );
 };
+
 export default ProjectsSection;
 
 const ProjectContents = ({ project }: { project: Project }) => {
@@ -110,35 +167,6 @@ const ProjectContents = ({ project }: { project: Project }) => {
           </div>
         )}
       </div>
-      {/* <div className="flex justify-center items-center">
-        {project.screenshots.map((image, idx) => (
-          <motion.div
-            key={"images" + idx}
-            style={{
-              rotate: Math.random() * 20 - 10,
-            }}
-            whileHover={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            whileTap={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
-          >
-            <Image
-              src={`${project.src.split("1.png")[0]}${image}`}
-              alt="screenshots"
-              width="500"
-              height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-            />
-          </motion.div>
-        ))}
-      </div> */}
       {project.content}
     </>
   );

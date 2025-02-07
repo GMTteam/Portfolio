@@ -271,14 +271,159 @@ export type Project = {
   content: React.ReactNode | any;
   github?: string;
   live: string;
+  model?: string;
 };
 const projects: Project[] = [
+  {
+    id: "portfolio",
+    category: "Portfolio",
+    title: "My Portfolio",
+    src: "/assets/projects-screenshots/portfolio/landing.png",
+    screenshots: ["landing.png", "skills.png", "about.png", "projects.png"],
+    live: "http://andree-portfolio.vercel.app",
+    github:"https://github.com/GMTteam/Portfolio",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.ts,
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.shadcn,
+        PROJECT_SKILLS.aceternity,
+        PROJECT_SKILLS.framerMotion,
+        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.spline,
+      ],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            Welcome to my digital playground, where creativity meets code in the
+            most amazing way possible.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">
+            Beautiful 3D Objects{" "}
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Did you see that 3D keyboard modal? Yeah! I made that. That
+            interactive keyboard is being rendered in 3D on a webpage 🤯, and
+            pressing each keycap reveals a skill in a goofy way. It&apos;s like
+            typing, but make it art.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/portfolio/landing.png`,
+              `${BASE_PATH}/portfolio/skills.png`,
+            ]}
+          />
+          <TypographyH3 className="my-4 ">Space Theme</TypographyH3>
+          <p className="font-mono mb-2">
+            Dark background + floating particles = out-of-this-world cool.
+          </p>
+          <SlideShow images={[`${BASE_PATH}/portfolio/about.png`]} />
+          <TypographyH3 className="my-4 mt-8">Projects</TypographyH3>
+
+          <p className="font-mono mb-2">
+            My top personal and freelance projects — no filler, all killer.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/portfolio/projects.png`,
+              `${BASE_PATH}/portfolio/project.png`,
+            ]}
+          />
+          <p className="font-mono mb-2 mt-8 text-center">
+            This site&apos;s not just a portfolio — it&apos;s a whole vibe.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
+    id: "vilandtravel",
+    category: "Booking Tour Website",
+    title: "Viland Travel",
+    src: "/assets/projects-screenshots/vilandtravel/vilandtravel-home.png",
+    screenshots: ["vilandtravel-home.png"],
+    live: "https://vilandtravel.com/",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.wordpress,
+        PROJECT_SKILLS.php,
+        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.js,
+      ],
+      backend: [
+        PROJECT_SKILLS.sanity,
+        PROJECT_SKILLS.firebase,
+        PROJECT_SKILLS.mysql,
+      ],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            Viland Travel is a booking tour website that offers a wide range of
+            travel packages to destinations around the world. With a clean,
+            modern design and user-friendly interface, Viland Travel makes it
+            easy.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <p className="font-mono mb-2 mt-8">
+            A sleek, modern interface greets you, featuring the latest travel
+            tips, deals, and must-visit spots around the globe.
+          </p>
+          <SlideShow images={[
+            `${BASE_PATH}/vilandtravel/vilandtravel-home.png`,
+            `${BASE_PATH}/vilandtravel/vilandtravel-tour.png`
+
+            ]}   
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "thirdperson",
+    category: "Unity Game",
+    title: "Third Person Hunter",
+    src: "/assets/projects-screenshots/thirdPerson/mockup.png",
+    screenshots: ["Capture.PNG", "2.png", "3.png", "4.png"],
+    model: "/assets/macbook-pro.glb",
+    live: "",
+    github: "https://github.com/cuoicungtui/Third-Person",
+    skills: {
+      frontend: [PROJECT_SKILLS.csharp, PROJECT_SKILLS.unity],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            Third Person Hunter is a thrilling action game that puts you in the
+            shoes of a hunter on a mission to take down dangerous creatures. The
+            game features stunning graphics, intense combat, and a gripping
+            storyline that will keep you on the edge of your seat.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow images={[
+            `${BASE_PATH}/thirdPerson/2.png`,
+            `${BASE_PATH}/thirdPerson/3.png`,
+            `${BASE_PATH}/thirdPerson/4.png`,
+            ]} 
+          />
+        </div>
+      );
+    },
+  },
   {
     id: "shopizilla",
     category: "E-commerce iOS App",
     title: "Shopizilla",
-    src: "/assets/projects-screenshots/shopizilla/shopizilla-home.png",
+    src: "/assets/projects-screenshots/shopizilla/mockup.png",
     screenshots: ["shopizilla-home.png"],
+    model: "/assets/iphone-11.glb",
     skills: {
       frontend: [
         PROJECT_SKILLS.swift,
@@ -331,8 +476,9 @@ const projects: Project[] = [
     id: "taskor",
     category: "Task Manager App",
     title: "Taskor",
-    src: "/assets/projects-screenshots/taskor/landing.png",
+    src: "/assets/projects-screenshots/taskor/mockup.png",
     screenshots: ["Screenshot-loading.png", "Screenshot-taskScreen.png", "Screenshot-timelineScreen.png", "Screenshot-calendarScreen.png", "Screenshot-cateScreen.png"],
+    model: "/assets/iphone-12.glb",
     live: "https://www.youtube.com/watch?v=5bGNcBDdhu8&ab_channel=T%C3%BANguy%E1%BB%85nAnh",
     github: "https://github.com/GMTteam/taskor",
     skills: {
@@ -410,121 +556,12 @@ const projects: Project[] = [
     },
   },
   {
-    id: "vilandtravel",
-    category: "Booking Tour Website",
-    title: "Viland Travel",
-    src: "/assets/projects-screenshots/vilandtravel/vilandtravel-home.png",
-    screenshots: ["vilandtravel-home.png"],
-    live: "https://vilandtravel.com/",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.wordpress,
-        PROJECT_SKILLS.php,
-        PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.js,
-      ],
-      backend: [
-        PROJECT_SKILLS.sanity,
-        PROJECT_SKILLS.firebase,
-        PROJECT_SKILLS.mysql,
-      ],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            Viland Travel is a booking tour website that offers a wide range of
-            travel packages to destinations around the world. With a clean,
-            modern design and user-friendly interface, Viland Travel makes it
-            easy.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-8">
-            A sleek, modern interface greets you, featuring the latest travel
-            tips, deals, and must-visit spots around the globe.
-          </p>
-          <SlideShow images={[
-            `${BASE_PATH}/vilandtravel/vilandtravel-home.png`,
-            `${BASE_PATH}/vilandtravel/vilandtravel-tour.png`
-
-            ]}   
-          />
-        </div>
-      );
-    },
-  },
-  {
-    id: "portfolio",
-    category: "Portfolio",
-    title: "My Portfolio",
-    src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: ["landing.png", "skills.png", "about.png", "projects.png"],
-    live: "http://andree-portfolio.vercel.app",
-    github:"https://github.com/GMTteam/Portfolio",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.shadcn,
-        PROJECT_SKILLS.aceternity,
-        PROJECT_SKILLS.framerMotion,
-        PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.spline,
-      ],
-      backend: [],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            Welcome to my digital playground, where creativity meets code in the
-            most amazing way possible.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">
-            Beautiful 3D Objects{" "}
-          </TypographyH3>
-          <p className="font-mono mb-2">
-            Did you see that 3D keyboard modal? Yeah! I made that. That
-            interactive keyboard is being rendered in 3D on a webpage 🤯, and
-            pressing each keycap reveals a skill in a goofy way. It&apos;s like
-            typing, but make it art.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/portfolio/landing.png`,
-              `${BASE_PATH}/portfolio/skills.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 ">Space Theme</TypographyH3>
-          <p className="font-mono mb-2">
-            Dark background + floating particles = out-of-this-world cool.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/portfolio/about.png`]} />
-          <TypographyH3 className="my-4 mt-8">Projects</TypographyH3>
-
-          <p className="font-mono mb-2">
-            My top personal and freelance projects — no filler, all killer.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/portfolio/projects.png`,
-              `${BASE_PATH}/portfolio/project.png`,
-            ]}
-          />
-          <p className="font-mono mb-2 mt-8 text-center">
-            This site&apos;s not just a portfolio — it&apos;s a whole vibe.
-          </p>
-        </div>
-      );
-    },
-  },
-  {
     id: "flappybird",
     category: "Unity Game",
     title: "Flappy Bird",
-    src: "/assets/projects-screenshots/flappyBird/1.PNG",
+    src: "/assets/projects-screenshots/flappyBird/mockup.jpeg",
     screenshots: ["1.PNG", "2.PNG", "3.PNG", "4.PNG, 5.PNG, 6.PNG"],
+    model: "/assets/iphone-13.glb",
     live: "",
     github:"https://github.com/cuoicungtui/Flappybird",
     skills: {
@@ -549,38 +586,6 @@ const projects: Project[] = [
               `${BASE_PATH}/flappyBird/5.PNG`,
               `${BASE_PATH}/flappyBird/6.PNG`,
             ]}
-          />
-        </div>
-      );
-    },
-  },
-  {
-    id: "thirdperson",
-    category: "Unity Game",
-    title: "Third Person Hunter",
-    src: "/assets/projects-screenshots/thirdPerson/Capture.png",
-    screenshots: ["Capture.PNG", "2.png", "3.png", "4.png"],
-    live: "",
-    github: "https://github.com/cuoicungtui/Third-Person",
-    skills: {
-      frontend: [PROJECT_SKILLS.csharp, PROJECT_SKILLS.unity],
-      backend: [],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            Third Person Hunter is a thrilling action game that puts you in the
-            shoes of a hunter on a mission to take down dangerous creatures. The
-            game features stunning graphics, intense combat, and a gripping
-            storyline that will keep you on the edge of your seat.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow images={[
-            `${BASE_PATH}/thirdPerson/2.png`,
-            `${BASE_PATH}/thirdPerson/3.png`,
-            `${BASE_PATH}/thirdPerson/4.png`,
-            ]} 
           />
         </div>
       );
