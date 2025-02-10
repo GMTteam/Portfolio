@@ -14,12 +14,10 @@ import SmoothScroll from "../smooth-scroll";
 import projects, { Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
-// Import các thư viện 3D
-import { Canvas, useLoader } from "@react-three/fiber";
+import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";
 
-// Component load model và áp texture vào mesh "Screen"
 const ModelView = ({
   modelPath,
   textureImage,
@@ -27,38 +25,45 @@ const ModelView = ({
   modelPath: string;
   textureImage: string;
 }) => {
-  // Load model từ file GLB
+
   const { scene } = useGLTF(modelPath);
-  // Load texture từ ảnh dựa trên giá trị src của project
   const texture = useLoader(TextureLoader, textureImage);
+  const groupRef = React.useRef<any>();
 
   React.useEffect(() => {
-    // Duyệt qua các đối tượng trong scene và tìm mesh có tên "Screen"
     scene.traverse((child: any) => {
       if (child.name === "Screen" && child.isMesh) {
         child.material.map = texture;
         child.material.needsUpdate = true;
-        
       } else {
         if (child.material) {
           child.material.color.set("gray");
-      }
+        }
       }
     });
   }, [scene, texture]);
 
-  return <primitive object={scene} scale={1.4} />;
+  useFrame((state) => {
+    const t = state.clock.elapsedTime;
+    if (groupRef.current) {
+      groupRef.current.rotation.y = Math.sin(t) * 0.3;
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      <primitive object={scene} scale={1.5} />
+    </group>
+  );
 };
 
-// Component preview cho từng project: nếu có model thì render Canvas với model có texture, còn không thì render Image như cũ.
+// Component preview cho từng project: nếu có model thì render Canvas với model có texture và hiệu ứng xoay, còn không thì render Image
 const ProjectPreview = ({ project }: { project: Project }) => {
   if (project.model) {
     return (
-      <Canvas style={{ width: "100%", height: "100%" }} camera={{ position: [2, 0, 5] }}>
-        
+      <Canvas style={{ width: "100%", height: "100%" }} camera={{ position: [3, 0, 5] }}>
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 5]} />
-        {/* Sử dụng project.src để làm texture cho Screen */}
         <ModelView modelPath={project.model} textureImage={project.src} />
         <OrbitControls enableZoom={false} />
       </Canvas>
